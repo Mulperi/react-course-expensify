@@ -40,6 +40,7 @@ module.exports = env => {
     },
     plugins: [
       CSSExtract,
+      // NEED THIS FOR ENVIRONMENT VARIABLES TO WORK
       new webpack.DefinePlugin({
         "process.env.FIREBASE_API_KEY": JSON.stringify(
           process.env.FIREBASE_API_KEY
