@@ -11,9 +11,13 @@ const config = {
 
 firebase.initializeApp(config);
 
+// FIREBASE NOSQL DATABASE
 const db = firebase.database();
 
-export { firebase, db as default };
+// ENABLES AUTHENTICATION
+const GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase, GoogleAuthProvider, db as default };
 
 // Subscribe to removing child node
 // db.ref("expenses").on("child_removed", snapshot => {
