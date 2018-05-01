@@ -12,11 +12,11 @@ import ExpenseDashboardPage from "../components/ExpenseDashboardPage";
 import AddPage from "../components/AddPage";
 import EditPage from "../components/EditPage";
 
-import HelpPage from "../components/HelpPage";
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import createHistory from "history/createBrowserHistory";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export const history = createHistory();
 // JOS KÄYTETÄÄN BROWSERROUTERIA, NIIN EI TARVI HISTORYÄ ERIKSEEN,
@@ -29,7 +29,7 @@ export const history = createHistory();
 const AppRouter = () => (
   <Router history={history}>
     <Switch>
-      <Route path="/" component={LoginPage} exact={true} />
+      <PublicRoute path="/" component={LoginPage} exact={true} />
       <PrivateRoute
         path="/dashboard"
         component={ExpenseDashboardPage}
@@ -37,7 +37,6 @@ const AppRouter = () => (
       />
       <PrivateRoute path="/create" component={AddPage} />
       <PrivateRoute path="/edit/:id" component={EditPage} />
-      <Route path="/help" component={HelpPage} />
       <Route component={NotFoundPage} />
     </Switch>
   </Router>
